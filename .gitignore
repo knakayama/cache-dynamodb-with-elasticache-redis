@@ -1,0 +1,4 @@
+.terraform
+*tfstate*
+functions/cache_dynamodb_with_elasticache_redis/*
+!functions/cache_dynamodb_with_elasticache_redis/main.py

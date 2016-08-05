@@ -1,0 +1,20 @@
+{
+  "name": "cache-dynamodb-with-elasticache-redis",
+  "description": "cache dynamodb with elasticache redis",
+  "nameTemplate": "{{.Function.Name}}",
+  "memory": 128,
+  "timeout": 5,
+  "runtime": "python",
+  "defaultEnvironment": "dev",
+  "vpc": {
+    "securityGroups": ["sg-********"],
+    "subnets": ["subnet-********"]
+  },
+  "environment": {
+    "ElastiCacheEndpoint": "***********************.cache.amazonaws.com",
+    "DynamoDBTableName": "cache_dynamodb_with_elasticache_redis"
+  },
+  "hooks": {
+    "deploy": "[[ -d redis ]] || pip install -r ../../requirements.txt -t ./"
+  }
+}
